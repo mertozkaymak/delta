@@ -20,7 +20,7 @@ $image = $params[0]["image"];
 $oil_channel = $params[0]["oil"];
 $tolerance_type = $params[0]["tolerancetype"];
 
-$body = '<img src="https://dev.digitalfikirler.com/delta_form/logo.jpg" width="220"/><br><br>Sayın yetkili,<br><br>' . $auth . '(' . $firm . ') ' . $category . ' bir teklif talebinde bulundu. <br><br>';
+$body = '<img src="***/logo.jpg" width="220"/><br><br>Sayın yetkili,<br><br>' . $auth . '(' . $firm . ') ' . $category . ' bir teklif talebinde bulundu. <br><br>';
 $body .= '<!--[if gte MSO 9]>
 		<table width="640">
 		<tr>
@@ -29,7 +29,7 @@ $body .= '<!--[if gte MSO 9]>
 		<table width="100%" style="max-width:640px;">
 		<tr>
 			<td>
-			<img src="https://shop.deltakalip.com' . $image . '" width="100%" />
+			<img src="https://***' . $image . '" width="100%" />
 			</td>
 		</tr>
 		</table>
@@ -71,7 +71,7 @@ for ($index=0; $index < count($values); $index++) {
 	</tr>';
 }
 $body .= '</tbody></table><br><br>Adet: ' . $qty . '<br><br>Telefon: ' . $phone . '<br>Email: ' . $email . '<br>Not: ' . $note . '<br><br>İyi çalışmalar dileriz.';
-$response = sendEmail("deltakalip@deltakalip.com", "deltakalip.com", $body, []);
+$response = sendEmail("***", "***", $body, []);
 
 if($response == 1) {
 	echo 1;
@@ -87,15 +87,15 @@ function sendEmail($email, $name, $body, $attachment = null) {
 		$mail->IsSMTP();
 
 		$mail->SMTPAuth = true;
-		$mail->Host = 'smtp.office365.com';
+		$mail->Host = 'smtp.***';
 		$mail->Port = 587;
-		$mail->Username = 'deltakalip@deltakalip.com';
-		$mail->Password = 'Duq26990';
+		$mail->Username = '***';
+		$mail->Password = '***';
 
-		$mail->SetFrom("deltakalip@deltakalip.com", 'deltakalip.com');
+		$mail->SetFrom("***", '***');
 		$mail->AddAddress($email, $name);
 		$mail->CharSet = 'UTF-8';
-		$mail->Subject = 'Teklif - deltakalip.com';
+		$mail->Subject = '***';
 		$mail->IsHTML(true);
 		$mail->MsgHTML($body);
 		// $mail->SMTPDebug = 2;
