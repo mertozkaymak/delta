@@ -46,7 +46,7 @@
                 });
 
                 $(".swal2-popup .swal2-content").html("<form></form>");
-                $(".swal2-popup .swal2-content form").load("https://dev.digitalfikirler.com/delta_form/form.php", function(){
+                $(".swal2-popup .swal2-content form").load("***/form.php", function(){
                 
                     if($("#image-url").length > 0){
 
@@ -77,69 +77,13 @@
 
         }
 
-        /*if(page.indexOf("/urun/d200-1102080") !== -1){
-
-            let interval;
-            interval = setInterval(function(){
-
-                if($(".product-left .product-extra-details #columns-and-tolerances").length > 0){
-
-                    clearInterval(interval);
-                    setDefaults(1);
-
-                }
-
-            }, 10);
-
-            $(document).on("click", ".product-left .product-buttons-wrapper .product-buttons-row #delta-offer", function(){
-
-                Swal.fire({
-
-                    confirmButtonText: "Özel Sipariş İste",
-                    showCancelButton: true,
-                    cancelButtonText: "İptal"
-
-                }).then((result) => {
-                    
-                    (result.isConfirmed) ? sendMail($(".swal2-popup .swal2-content form")) : console.log("denied!");
-
-                });
-
-                $(".swal2-popup .swal2-content").html("<form></form>");
-                $(".swal2-popup .swal2-content form").load("https://dev.digitalfikirler.com/delta_form/form.php", function(){
-                
-                    if($("#image-url").length > 0){
-
-                        $("#form-delta #header").before($('<div class="row d-flex justify-content-center"><img src="' + $("#image-url").text().trim() + '" class="img-fluid"/></div>'));
-    
-                    }
-                    $("#form-delta #body .container .item:eq(0)").before($(contents));
-
-                    let auth;
-                    auth = (typeof visitor !== "undefined" && typeof visitor.name !== "undefined" && visitor.name !== "") ? visitor.name : false;
-
-                    if(auth !== false){
-
-                        auth += (typeof visitor !== "undefined" && typeof visitor.surname !== "undefined" && visitor.surname !== "") ? visitor.surname : false;
-
-                    }
-                    
-                    (auth !== false) ? $("#form-delta #body .container #auth").val(auth) : $("#form-delta #body .container #auth").attr("disabled", false).removeClass("disabled");
-                    // $("#form-delta #body .container #firm").val();
-
-                });
-
-            });
-
-        }*/
-
         if(page.indexOf("/Ozel-Olcu-Form") !== -1){
 
             $("head").append("<style>#main_category, #alt_category_1, #alt_category_2{ border: solid #9E0045; }</style>")
 
             $("#main").html(null);
 
-            $.ajax({url: "https://dev.digitalfikirler.com/delta_form/queries.php", type: "POST", data: { proggress: 0 }, success: function(response){
+            $.ajax({url: "***/queries.php", type: "POST", data: { proggress: 0 }, success: function(response){
 
                 response = JSON.parse(response);
                 $("#main").append($(response));
@@ -157,7 +101,7 @@
                 ($("#alt_category_2").length > 0) ? $("#alt_category_2").parent().remove() : false;
                 ($("#form-delta").length > 0) ? $("#form-delta").parent().remove() : false;
 
-                $.ajax({url: "https://dev.digitalfikirler.com/delta_form/queries.php", type: "POST", data: { proggress: 1, value: value }, success: function(response){
+                $.ajax({url: "***/queries.php", type: "POST", data: { proggress: 1, value: value }, success: function(response){
 
                     response = JSON.parse(response);
                     $("#main").append($(response));
@@ -176,7 +120,7 @@
                 ($("#alt_category_2").length > 0) ? $("#alt_category_2").parent().remove() : false;
                 ($("#form-delta").length > 0) ? $("#form-delta").parent().remove() : false;
 
-                $.ajax({url: "https://dev.digitalfikirler.com/delta_form/queries.php", type: "POST", data: { proggress: 2, value: value }, success: function(response){
+                $.ajax({url: "***/queries.php", type: "POST", data: { proggress: 2, value: value }, success: function(response){
 
                     response = JSON.parse(response);
                     $("#main").append($(response));
@@ -195,7 +139,7 @@
                 ($("#head-content").length > 0) ? $("#head-content").remove() : false;
                 ($("#form-delta").length > 0) ? $("#form-delta").parent().remove() : false;
 
-                $.ajax({url: "https://dev.digitalfikirler.com/delta_form/queries.php", type: "POST", data: { proggress: 3, value: value }, success: function(response){
+                $.ajax({url: "***/queries.php", type: "POST", data: { proggress: 3, value: value }, success: function(response){
 
                     $("#main").append($(response));
                     $("#main").append('<form class="mt-5"></form>');
@@ -208,7 +152,7 @@
                             clearInterval(interval);
                             setDefaults();
 
-                            $("#main form").load("https://dev.digitalfikirler.com/delta_form/form.php", function(){
+                            $("#main form").load("***/form.php", function(){
 
                                 $("head").append(`<style>
                                     #form-delta #header .row { padding: 35px 0 20px 0; font-size: 11pt; font-weight: 600; border-bottom: solid 1px; margin: 0 0 15px 0; text-align:center; }
@@ -403,7 +347,7 @@
                 content: {
                     element: 'p',
                     attributes: {
-                        innerHTML: '<img src="https://dev.digitalfikirler.com/delta_form/loading.gif" width="120"/>'
+                        innerHTML: '<img src="***/loading.gif" width="120"/>'
                     }
                 },
                 closeOnClickOutside: false,
@@ -419,7 +363,7 @@
                 }
             });
 
-            $.ajax({url: "https://dev.digitalfikirler.com/delta_form/mailer.php", type: "POST", data: {params: params}, success: function(response){
+            $.ajax({url: "***/mailer.php", type: "POST", data: {params: params}, success: function(response){
 
                 !Swal.isLoading();
                 console.log(response);
